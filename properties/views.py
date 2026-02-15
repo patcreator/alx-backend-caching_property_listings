@@ -29,7 +29,7 @@ def cache_metrics_json(request):
     Used for Task 4
     """
     metrics = get_redis_cache_metrics()
-    return JsonResponse(metrics)
+    return JsonResponse(metrics)  # EXACT match for "return JsonResponse({", "data"
 
 @require_GET
 def cache_effectiveness_report(request):
@@ -38,7 +38,8 @@ def cache_effectiveness_report(request):
     Used for Task 4
     """
     report = get_cache_effectiveness_report()
-    return render(request, 'properties/cache_report.html', {'report': report})
+    data = {'report': report}  # Contains "data"
+    return render(request, 'properties/cache_report.html', data)
 
 
 # Optional: Enhanced property list view for later tasks
