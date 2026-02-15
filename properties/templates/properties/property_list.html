@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Listings</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .property { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+        .price { color: green; font-weight: bold; }
+        .cache-info { background: #f0f0f0; padding: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Property Listings</h1>
+    
+    <div class="cache-info">
+        <p>This page is cached for {{ cache_duration }}</p>
+    </div>
+    
+    {% for property in properties %}
+    <div class="property">
+        <h3>{{ property.title }}</h3>
+        <p>{{ property.description }}</p>
+        <p class="price">Price: ${{ property.price }}</p>
+        <p>Location: {{ property.location }}</p>
+        <small>Listed on: {{ property.created_at }}</small>
+    </div>
+    {% empty %}
+    <p>No properties found.</p>
+    {% endfor %}
+    <!-- Add this to the template -->
+<div class="cache-info">
+    <p>View Cache: {{ cache_duration }}</p>
+    <p>Redis Metrics:</p>
+    <ul>
+        <li>Hits: {{ cache_metrics.hits }}</li>
+        <li>Misses: {{ cache_metrics.misses }}</li>
+        <li>Hit Ratio: {{ cache_metrics.hit_ratio }}%</li>
+        <li>Memory Used: {{ cache_metrics.used_memory }}</li>
+        <li>Connected Clients: {{ cache_metrics.connected_clients }}</li>
+    </ul>
+</div>
+</body>
+</html>

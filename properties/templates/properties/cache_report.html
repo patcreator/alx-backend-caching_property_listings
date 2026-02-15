@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cache Effectiveness Report</title>
+    <style>
+        body { font-family: monospace; margin: 20px; background: #f5f5f5; }
+        pre { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Redis Cache Effectiveness Report</h1>
+    <pre>{{ report }}</pre>
+    <p><a href="{% url 'properties:property_list' %}">Back to Property Listings</a></p>
+</body>
+</html>
